@@ -20,7 +20,8 @@ class Content extends Component {
       disableKBDismissScroll,
       keyboardShouldPersistTaps,
       padder,
-      style
+      style,
+      forceInset,
     } = this.props;
 
     const containerStyle = {
@@ -33,7 +34,7 @@ class Content extends Component {
       : variable;
 
     return (
-      <SafeAreaView style={containerStyle}>
+      <SafeAreaView style={containerStyle} forceInset={forceInset}>
         <KeyboardAwareScrollView
           automaticallyAdjustContentInsets={false}
           resetScrollToCoords={disableKBDismissScroll ? null : { x: 0, y: 0 }}
@@ -63,7 +64,8 @@ Content.propTypes = {
     PropTypes.object,
     PropTypes.number,
     PropTypes.array
-  ])
+  ]),
+  forceInset: PropTypes.object,
 };
 
 const StyledContent = connectStyle(
